@@ -44,6 +44,19 @@ These offers are designed to be sold and delivered fully async by chat. No calls
 
 **Demo:** reply draft + lead tracker in `index.html`.
 
+## Niche demos ready to show
+
+The demo now includes presets that can be selected from the left panel:
+
+- Cleaning quote flow
+- Event rental booking
+- Mobile detailing request
+- Roofing estimate intake
+- Pool service quote
+- Handyman job request
+
+Use the matching preset before sending a demo link or screenshot to a prospect. The preset changes package names, intake wording, sample lead details, and reply copy so the demo feels specific to the prospect's business.
+
 ## Default terms
 
 - Communication: chat only.

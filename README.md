@@ -21,14 +21,16 @@ No backend, accounts, secrets, payment processing, or external services are requ
 - `outreach.md` - DM, email, WhatsApp copy, plus 50 prospect profiles.
 - `deploy.md` - GitHub Pages, Vercel, and Netlify deployment notes.
 - `delivery-package.md` - buyer handoff, required client inputs, exclusions, and revision policy.
+- `closing-playbook.md` - reply templates for interested prospects.
 
 ## Customization checklist
 
 1. Change the business name, service category, city, packages, and pricing.
-2. Replace the default reply text with the owner's preferred wording.
-3. Add the client's real WhatsApp, email, or booking link.
-4. Deploy as a static page or send the files as a template.
-5. Let the buyer handle payment collection and customer replies.
+2. Pick a niche preset for cleaning, events, detailing, roofing, pool service, or handyman prospects.
+3. Replace the default reply text with the owner's preferred wording.
+4. Add the client's real WhatsApp, email, or booking link.
+5. Deploy as a static page or send the files as a template.
+6. Let the buyer handle payment collection and customer replies.
 
 ## Suggested service terms
 

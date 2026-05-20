@@ -1,6 +1,7 @@
 const storageKey = "async-service-kit-demo";
 
 const defaultState = {
+  preset: "generic",
   selectedService: "express",
   leads: [],
   services: [
@@ -28,7 +29,213 @@ const defaultState = {
   ]
 };
 
+const presets = {
+  generic: {
+    businessName: "Aurora Studio",
+    businessType: "Beauty and wellness",
+    city: "Miami",
+    replyWindow: "within 30 minutes",
+    paymentNote: "50% deposit to reserve the work, 50% after delivery. Final payment method is confirmed by the owner.",
+    selectedService: "express",
+    services: defaultState.services,
+    sample: "Needs a quick quote and wants to confirm availability without a call."
+  },
+  cleaning: {
+    businessName: "FreshSpace Cleaning",
+    businessType: "Residential and commercial cleaning",
+    city: "Miami",
+    replyWindow: "within 2 hours",
+    paymentNote: "50% deposit starts the build, 50% after delivery. The owner confirms PayPal, Wise, MercadoPago, or another payment method by chat.",
+    selectedService: "express",
+    services: [
+      {
+        id: "express",
+        name: "Cleaning quote page",
+        price: 75,
+        eta: "24h",
+        text: "Service selector, property details, preferred date, access notes, and reply draft for cleaning estimates."
+      },
+      {
+        id: "booking",
+        name: "Recurring cleaning request",
+        price: 90,
+        eta: "48h",
+        text: "Weekly/biweekly package selector with rooms, square footage, pets, supplies, and CSV lead handoff."
+      },
+      {
+        id: "cleanup",
+        name: "Cleaning CTA tune-up",
+        price: 60,
+        eta: "24h",
+        text: "Sharper quote CTA, better request prompts, reply templates, and simple lead tracking."
+      }
+    ],
+    sample: "Apartment deep cleaning, 2 bedrooms, needs quote for this week, has pets and parking notes."
+  },
+  events: {
+    businessName: "BrightPop Rentals",
+    businessType: "Event rentals and party packages",
+    city: "Miami",
+    replyWindow: "within 2 hours",
+    paymentNote: "50% deposit reserves the build, 50% after delivery. Final client payment method is confirmed by chat.",
+    selectedService: "booking",
+    services: [
+      {
+        id: "express",
+        name: "Event quote page",
+        price: 75,
+        eta: "24h",
+        text: "Event type, date, guest count, venue, package request, and contact preference in one inquiry."
+      },
+      {
+        id: "booking",
+        name: "Rental booking request",
+        price: 90,
+        eta: "48h",
+        text: "Package/add-on selector with delivery details, event timing, setup notes, and CSV lead export."
+      },
+      {
+        id: "cleanup",
+        name: "Event inquiry tune-up",
+        price: 60,
+        eta: "24h",
+        text: "Clearer CTA, package copy, intake questions, and reply templates for faster quotes."
+      }
+    ],
+    sample: "Birthday party on Saturday, 45 guests, needs bounce house, tables, delivery, and setup time."
+  },
+  detailing: {
+    businessName: "Prime Mobile Detail",
+    businessType: "Mobile car detailing",
+    city: "Miami",
+    replyWindow: "same business day",
+    paymentNote: "50% deposit starts the build, 50% after delivery. Payment rail is confirmed manually by the owner.",
+    selectedService: "express",
+    services: [
+      {
+        id: "express",
+        name: "Detailing quote form",
+        price: 75,
+        eta: "24h",
+        text: "Vehicle type, service package, location, preferred date, condition notes, and contact preference."
+      },
+      {
+        id: "booking",
+        name: "Mobile service request",
+        price: 90,
+        eta: "48h",
+        text: "Package selector with add-ons, access notes, parking details, and lead export for mobile jobs."
+      },
+      {
+        id: "cleanup",
+        name: "Detailing CTA tune-up",
+        price: 60,
+        eta: "24h",
+        text: "Better package wording, quote prompts, reply templates, and simple lead tracker."
+      }
+    ],
+    sample: "SUV interior detail, pet hair, mobile service at office parking lot, prefers Friday morning."
+  },
+  roofing: {
+    businessName: "StormReady Roofing",
+    businessType: "Roof repair and inspection",
+    city: "Miami",
+    replyWindow: "within 2 hours",
+    paymentNote: "50% deposit starts the build, 50% after delivery. Payment method is confirmed by chat before work starts.",
+    selectedService: "express",
+    services: [
+      {
+        id: "express",
+        name: "Roof estimate intake",
+        price: 75,
+        eta: "24h",
+        text: "Leak type, property address area, roof material, urgency, photo notes, and contact preference."
+      },
+      {
+        id: "booking",
+        name: "Inspection request flow",
+        price: 90,
+        eta: "48h",
+        text: "Inspection reason, access windows, storm damage notes, preferred date, and lead export."
+      },
+      {
+        id: "cleanup",
+        name: "Roofing CTA tune-up",
+        price: 60,
+        eta: "24h",
+        text: "Sharper emergency/estimate prompts, service copy, reply templates, and tracking sheet."
+      }
+    ],
+    sample: "Possible leak after rain, tile roof, wants inspection this week, can send photos by email."
+  },
+  pool: {
+    businessName: "ClearPool Care",
+    businessType: "Pool cleaning and repair",
+    city: "Miami",
+    replyWindow: "same business day",
+    paymentNote: "50% deposit starts the build, 50% after delivery. Final payment method is confirmed by the owner.",
+    selectedService: "express",
+    services: [
+      {
+        id: "express",
+        name: "Pool service quote",
+        price: 75,
+        eta: "24h",
+        text: "Service type, pool size, neighborhood, issue details, preferred schedule, and reply draft."
+      },
+      {
+        id: "booking",
+        name: "Maintenance request flow",
+        price: 90,
+        eta: "48h",
+        text: "Weekly service selector with water condition, equipment notes, repair flags, and lead export."
+      },
+      {
+        id: "cleanup",
+        name: "Pool CTA tune-up",
+        price: 60,
+        eta: "24h",
+        text: "Quote CTA copy, clearer service prompts, reply templates, and simple lead tracker."
+      }
+    ],
+    sample: "Weekly pool cleaning quote, medium pool, cloudy water, wants service to start next week."
+  },
+  handyman: {
+    businessName: "FixRight Handyman",
+    businessType: "Home repair and maintenance",
+    city: "Miami",
+    replyWindow: "same business day",
+    paymentNote: "50% deposit starts the build, 50% after delivery. Payment method is confirmed manually before work starts.",
+    selectedService: "express",
+    services: [
+      {
+        id: "express",
+        name: "Job request page",
+        price: 75,
+        eta: "24h",
+        text: "Repair type, photos/notes, address area, urgency, preferred date, and contact preference."
+      },
+      {
+        id: "booking",
+        name: "Multi-job intake flow",
+        price: 90,
+        eta: "48h",
+        text: "Task checklist, materials notes, access windows, urgency, and CSV lead export."
+      },
+      {
+        id: "cleanup",
+        name: "Handyman CTA tune-up",
+        price: 60,
+        eta: "24h",
+        text: "Clearer quote prompts, service CTA copy, reply templates, and simple lead tracking."
+      }
+    ],
+    sample: "Needs drywall patch, faucet replacement, and door adjustment, wants estimate before weekend."
+  }
+};
+
 const fields = {
+  demoPreset: document.querySelector("#demoPreset"),
   businessName: document.querySelector("#businessName"),
   businessType: document.querySelector("#businessType"),
   businessCity: document.querySelector("#businessCity"),
@@ -62,6 +269,25 @@ function loadState() {
 
 function saveState() {
   localStorage.setItem(storageKey, JSON.stringify(state));
+}
+
+function setBusinessFields(preset) {
+  fields.demoPreset.value = preset;
+  fields.businessName.value = presets[preset].businessName;
+  fields.businessType.value = presets[preset].businessType;
+  fields.businessCity.value = presets[preset].city;
+  fields.replyWindow.value = presets[preset].replyWindow;
+  fields.paymentNote.value = presets[preset].paymentNote;
+}
+
+function applyPreset(preset) {
+  const selected = presets[preset] ? preset : "generic";
+  state.preset = selected;
+  state.selectedService = presets[selected].selectedService;
+  state.services = structuredClone(presets[selected].services);
+  setBusinessFields(selected);
+  saveState();
+  render();
 }
 
 function getSelectedService() {
@@ -220,12 +446,13 @@ document.querySelector("#exportCsv").addEventListener("click", exportCsv);
 
 document.querySelector("#addLeadSample").addEventListener("click", () => {
   const service = getSelectedService();
+  const preset = presets[state.preset] || presets.generic;
   addLead({
     name: "Sample Client",
     contact: "sample@example.com",
     date: new Date(Date.now() + 86400000).toISOString().slice(0, 10),
     urgency: "This week",
-    details: "Needs a quick quote and wants to confirm availability without a call.",
+    details: preset.sample,
     serviceName: service.name,
     servicePrice: service.price
   });
@@ -234,13 +461,14 @@ document.querySelector("#addLeadSample").addEventListener("click", () => {
 document.querySelector("#resetDemo").addEventListener("click", () => {
   localStorage.removeItem(storageKey);
   state = structuredClone(defaultState);
-  fields.businessName.value = "Aurora Studio";
-  fields.businessType.value = "Beauty and wellness";
-  fields.businessCity.value = "Miami";
-  fields.replyWindow.value = "within 30 minutes";
-  fields.paymentNote.value = "50% deposit to reserve the work, 50% after delivery. Final payment method is confirmed by the owner.";
+  setBusinessFields("generic");
   leadForm.reset();
   render();
 });
 
+fields.demoPreset.addEventListener("change", () => {
+  applyPreset(fields.demoPreset.value);
+});
+
+setBusinessFields(state.preset || "generic");
 render();
