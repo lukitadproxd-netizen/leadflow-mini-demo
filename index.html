@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LeadFlow Mini Demo</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">24-48h async delivery demo</p>
+          <h1>LeadFlow Mini</h1>
+          <p class="subhead">A compact lead capture, quote reply, and CSV handoff system for small service businesses.</p>
+        </div>
+        <div class="top-actions">
+          <a class="ghost-link" href="offers.md">Offer sheet</a>
+          <div class="status-pill">No backend required</div>
+        </div>
+      </header>
+
+      <section class="workspace" aria-label="Async service kit workspace">
+        <aside class="panel settings-panel">
+          <div class="section-title">
+            <span>Demo business</span>
+            <button class="ghost-button" id="resetDemo" type="button">Reset</button>
+          </div>
+
+          <label>
+            Business name
+            <input id="businessName" type="text" value="Aurora Studio" />
+          </label>
+
+          <label>
+            Service category
+            <input id="businessType" type="text" value="Beauty and wellness" />
+          </label>
+
+          <label>
+            City
+            <input id="businessCity" type="text" value="Miami" />
+          </label>
+
+          <label>
+            Reply window
+            <select id="replyWindow">
+              <option value="within 30 minutes">within 30 minutes</option>
+              <option value="within 2 hours">within 2 hours</option>
+              <option value="same business day">same business day</option>
+            </select>
+          </label>
+
+          <label>
+            Payment note
+            <textarea id="paymentNote" rows="3">50% deposit to reserve the work, 50% after delivery. Final payment method is confirmed by the owner.</textarea>
+          </label>
+        </aside>
+
+        <section class="panel services-panel">
+          <div class="section-title">
+            <span>Sellable packages</span>
+            <button class="ghost-button" id="addLeadSample" type="button">Sample lead</button>
+          </div>
+
+          <div class="service-list" id="serviceList" aria-live="polite"></div>
+        </section>
+
+        <section class="panel lead-panel">
+          <div class="section-title">
+            <span>Client inquiry</span>
+            <button class="ghost-button" id="exportCsv" type="button">Export CSV</button>
+          </div>
+
+          <form id="leadForm" class="lead-form">
+            <div class="split">
+              <label>
+                Client name
+                <input id="clientName" type="text" placeholder="Maria Lopez" required />
+              </label>
+              <label>
+                Contact
+                <input id="clientContact" type="text" placeholder="WhatsApp or email" required />
+              </label>
+            </div>
+
+            <div class="split">
+              <label>
+                Preferred date
+                <input id="preferredDate" type="date" required />
+              </label>
+              <label>
+                Urgency
+                <select id="urgency">
+                  <option value="Flexible">Flexible</option>
+                  <option value="This week">This week</option>
+                  <option value="Today or tomorrow">Today or tomorrow</option>
+                </select>
+              </label>
+            </div>
+
+            <label>
+              Request details
+              <textarea id="requestDetails" rows="4" placeholder="What does the client need?" required></textarea>
+            </label>
+
+            <button class="primary-button" type="submit">Save lead</button>
+          </form>
+
+          <div class="message-box">
+            <div class="section-title compact">
+            <span>Reply draft</span>
+            <button class="ghost-button" id="copyMessage" type="button">Copy</button>
+            </div>
+            <pre id="replyPreview"></pre>
+          </div>
+
+          <div class="lead-list-wrap">
+            <div class="section-title compact">
+              <span>Saved leads</span>
+              <span class="count" id="leadCount">0</span>
+            </div>
+            <div class="lead-list" id="leadList"></div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
