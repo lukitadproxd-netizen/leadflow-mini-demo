@@ -255,6 +255,14 @@ const replyPreview = document.querySelector("#replyPreview");
 const leadForm = document.querySelector("#leadForm");
 
 let state = loadState();
+const urlPreset = new URLSearchParams(window.location.search).get("preset");
+
+if (urlPreset && presets[urlPreset]) {
+  state.preset = urlPreset;
+  state.selectedService = presets[urlPreset].selectedService;
+  state.services = structuredClone(presets[urlPreset].services);
+  saveState();
+}
 
 function loadState() {
   const saved = localStorage.getItem(storageKey);
