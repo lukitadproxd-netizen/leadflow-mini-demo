@@ -17,6 +17,7 @@ No backend, accounts, secrets, payment processing, or external services are requ
 - `index.html` - static page and UI structure.
 - `styles.css` - responsive layout and visual design.
 - `app.js` - localStorage lead capture, message generation, CSV export.
+- `previews/` - customer-facing one-page preview links for specific prospects.
 - `offers.md` - packaged offers and service terms.
 - `outreach.md` - DM, email, WhatsApp copy, plus 50 prospect profiles.
 - `deploy.md` - GitHub Pages, Vercel, and Netlify deployment notes.
@@ -31,6 +32,10 @@ No backend, accounts, secrets, payment processing, or external services are requ
 4. Add the client's real WhatsApp, email, or booking link.
 5. Deploy as a static page or send the files as a template.
 6. Let the buyer handle payment collection and customer replies.
+
+## Personalized preview links
+
+Use `previews/{business-slug}/` for cold outreach. Each preview should feel like it was made for that exact business: business name, city, niche, WhatsApp CTA, services, and inquiry fields.
 
 ## Suggested service terms
 
